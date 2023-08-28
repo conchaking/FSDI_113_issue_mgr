@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Tasks{% endblock title %}
+
+
+
+{% block content%}
+<h1>Tasks</h1>
+
+    {% for task in task_list %}
+    <div class="task-card">
+        <div class="card-body">
+        <h5 class="card-title">{{ task.name }}</h5>
+        <p class="card-text">{{ task.get_progress_display }}</p>
+        <p class="card-body">{{ task.description }}</p>
+        <a href="{% url 'detail' task.id %}">
+            {{ task.name }}
+        </div>
+    </a>
+    {% endfor %}
+
+{% endblock content %}

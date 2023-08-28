@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ task.name }}{% endblock title %}
+
+{% block content %}
+<h1>{{ task.name }}</h1>
+<h3>{{ task.get_progress_display }}</h3>
+<p>{{ task.description }}</p>
+<a href="{% url 'edit' task.id %}">edit</a>
+<a href="{% url 'delete' task.id %}">delete</a>
+{% endblock content %}
